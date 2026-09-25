@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CyberSuraksha — Safety Demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header>
+      <div><p class="eyebrow">PERSONAL SAFETY · DEMO</p><h1>Cyber<span>Suraksha</span></h1></div>
+      <button class="status-pill" id="networkBtn" aria-label="Toggle network status"><i></i><span id="networkText">Network online</span></button>
+    </header>
+
+    <section class="hero card">
+      <div>
+        <p class="eyebrow">READY TO PROTECT</p>
+        <h2>Your safety plan is armed.</h2>
+        <p class="muted">Shake–pause–shake will begin a discreet safety check.</p>
+      </div>
+      <button class="panic" id="panicBtn"><span>✦</span> Test safety check</button>
+    </section>
+
+    <section class="grid primary-grid">
+      <article class="card fake-call-card">
+        <div class="icon-call">☎</div>
+        <p class="eyebrow">DISCREET ESCAPE</p><h3>Fake incoming call</h3>
+        <p class="muted">Give yourself a safe reason to step away.</p>
+        <div class="inline-controls"><label>Caller <input id="callerName" value="Mum" maxlength="24" /></label><button id="fakeCallBtn" class="secondary">Start call</button></div>
+      </article>
+      <article class="card siren-card">
+        <div class="icon-siren">◉</div>
+        <p class="eyebrow">LOUD ALARM</p><h3>Scream alarm siren</h3>
+        <p class="muted">Activates a local alarm and shares an alarm alert with your safety circle.</p>
+        <button id="sirenBtn" class="danger">Activate siren</button>
+      </article>
+    </section>
+
+    <section class="grid secondary-grid">
+      <article class="card map-card">
+        <div class="card-heading"><div><p class="eyebrow">NEARBY SUPPORT</p><h3>Safe points</h3></div><button class="text-btn" id="locateBtn">Use my location</button></div>
+        <div class="map" id="map">
+          <span class="road r1"></span><span class="road r2"></span><span class="road r3"></span><span class="me" title="Your approximate location"></span>
+          <button class="point p1" data-name="Anna Nagar Police Station" data-type="Police station">⌖<small>Police</small></button>
+          <button class="point p2" data-name="Apollo Hospital" data-type="Hospital">✚<small>Hospital</small></button>
+          <button class="point p3" data-name="Community Safe Hub" data-type="Safe place">★<small>Safe hub</small></button>
+        </div>
+        <p class="muted small" id="mapNote">Demo locations near Anna Nagar, Chennai. Select a point for directions.</p>
+      </article>
+
+      <article class="card journey-card">
+        <p class="eyebrow">JOURNEY MODE</p><h3>Share a temporary safety link</h3>
+        <p class="muted">Your contact can view your journey until the link expires.</p>
+        <div class="journey-form"><label>Trusted contact <select id="contact"><option>Priya · Sister</option><option>Arjun · Friend</option><option>Campus Security</option></select></label><label>Expires in <select id="duration"><option value="30">30 minutes</option><option value="60" selected>1 hour</option><option value="120">2 hours</option></select></label></div>
+        <button class="primary" id="journeyBtn">Start protected journey</button>
+        <div class="active-journey hidden" id="journeyActive"><div><span class="pulse"></span><b>Journey sharing active</b><small id="expiryText"></small></div><button class="text-btn" id="endJourneyBtn">End</button></div>
+      </article>
+    </section>
+
+    <section class="card checkin-card">
+      <div><p class="eyebrow">CHECK-IN TIMER</p><h3>Ask me to check in</h3><p class="muted">If you miss the check-in, your trusted contact receives a safety alert.</p></div>
+      <div class="checkin-actions"><select id="checkinDuration"><option value="1">1 min demo</option><option value="15">15 minutes</option><option value="30">30 minutes</option><option value="60">1 hour</option></select><button class="primary" id="checkinBtn">Set timer</button></div>
+      <div class="checkin-live hidden" id="checkinLive"><span id="timerText">00:00</span><button class="secondary" id="checkinNowBtn">I’m safe</button><button class="text-btn" id="cancelCheckinBtn">Cancel</button></div>
+    </section>
+
+    <section class="card activity"><div class="card-heading"><div><p class="eyebrow">INCIDENT TIMELINE</p><h3>Recent activity</h3></div><button class="text-btn" id="clearLog">Clear</button></div><ul id="activityList"><li><span class="dot ready"></span><div><b>Safety plan armed</b><small>Secret trigger and privacy settings are ready</small></div><time>now</time></li></ul></section>
+  </main>
+
+  <div class="modal hidden" id="callModal" role="dialog" aria-modal="true"><div class="phone-call"><p>Incoming call</p><div class="avatar">M</div><h2 id="callerDisplay">Mum</h2><span>mobile</span><div class="call-actions"><button id="declineBtn" class="round decline">✕<small>Decline</small></button><button id="answerBtn" class="round answer">☎<small>Answer</small></button></div></div></div>
+  <div class="modal hidden" id="activeCallModal" role="dialog" aria-modal="true"><div class="phone-call active"><p id="callTimer">00:00</p><div class="avatar">M</div><h2 id="activeCaller">Mum</h2><span>Fake call in progress</span><button id="hangupBtn" class="hangup">☎<br><small>Hang up</small></button></div></div>
+  <div class="modal hidden" id="safetyModal" role="dialog" aria-modal="true"><div class="safety-sheet"><p class="eyebrow">DISCREET SAFETY CHECK</p><h2>Are you safe?</h2><p>We’ll notify trusted contacts if you do not respond.</p><div class="countdown" id="safetyCountdown">20</div><button class="primary wide" id="safeBtn">I’m safe</button><button class="text-btn wide" id="helpBtn">I need help now</button></div></div>
+  <div class="toast hidden" id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
