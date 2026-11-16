@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">GuardianSOS</string>
+    <string name="emergency_channel_name">Emergency Alerts</string>
+    <string name="emergency_channel_desc">Notifications for active emergencies</string>
+    <string name="sos_message_template">🆘 EMERGENCY! %1$s needs help! Location: https://maps.google.com/?q=%2$f,%3$f | Time: %4$s</string>
+    <string name="stage_1_title">Stage 1: Silent Safety Check</string>
+    <string name="stage_2_title">Stage 2: Trusted Contact Alert</string>
+    <string name="stage_3_title">Stage 3: Emergency Escalation</string>
+    <string name="confirm_safe">I\'m Safe</string>
+    <string name="escalate">Escalate Now</string>
+    <string name="call_emergency">Call 112</string>
+</resources>
